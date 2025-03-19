@@ -67,9 +67,6 @@ export default async function EventPage({
                   <FaCalendarAlt className="h-5 w-5 text-muted-foreground" />
                   <div>
                     <p className="font-medium">{formatDate(event.date)}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {event.time}
-                    </p>
                   </div>
                 </div>
 
@@ -77,9 +74,6 @@ export default async function EventPage({
                   <FaMapMarkerAlt className="h-5 w-5 text-muted-foreground" />
                   <div>
                     <p className="font-medium">{event.location}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {event.address}
-                    </p>
                   </div>
                 </div>
               </div>

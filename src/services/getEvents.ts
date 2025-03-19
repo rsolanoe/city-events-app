@@ -1,5 +1,16 @@
 import { notFound } from "next/navigation";
 
+interface Event {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  category: string;
+  description: string;
+  image: string;
+  price: string;
+}
+
 /**
  * Fetches events data from the API and returns a structured object.
  * 
@@ -12,7 +23,7 @@ import { notFound } from "next/navigation";
  */
 
 export async function getEvents(): Promise<{
-  events: any[];
+  events: Event[];
   categories: string[];
   locations: string[];
 }> {
@@ -26,8 +37,8 @@ export async function getEvents(): Promise<{
 
   const { mockEvents: events } = await res.json();
 
-  const categories: string[] = Array.from(new Set(events.map((event: any) => event.category)));
-  const locations: string[] = Array.from(new Set(events.map((event: any) => event.location)));
+  const categories: string[] = Array.from(new Set(events.map((event: Event) => event.category)));
+  const locations: string[] = Array.from(new Set(events.map((event: Event) => event.location)));
 
   return { events, categories, locations };
 }
@@ -40,7 +51,7 @@ export async function getEvents(): Promise<{
  * @throws {404} If the event is not found
  */
 export async function getEventById(id: string): Promise<{
-  event: any;
+  event: Event;
 }> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${id}`, {
     cache: "no-store",

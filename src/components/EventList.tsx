@@ -18,7 +18,7 @@ export default function EventList({ initialData }: Props) {
 
   useEffect(() => {
     setEvents(initialData);
-  }, [initialData]);
+  }, [initialData, setEvents]);
 
   console.log({ filterOptions });
 

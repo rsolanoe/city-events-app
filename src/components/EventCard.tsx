@@ -1,7 +1,17 @@
 import React from "react";
 import Image from "next/image";
 
-export default function EventCard({ event }: any) {
+interface Event {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  category: string;
+  description: string;
+  image: string;
+}
+
+export default function EventCard({ event }: { event: Event }) {
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm">
       <div className="relative h-48 w-full">

@@ -13,7 +13,22 @@ import CustomSelect from "./CustomSelect";
 import { useEventStore } from "@/stores/useEventStore";
 import CustomInput from "./CustomInput";
 
-export default function Header({ initialData }: any) {
+interface Event {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  category: string;
+  description: string;
+  image: string;
+  price: string;
+}
+
+interface Props {
+  initialData: { events: Event[]; categories: string[]; locations: string[] };
+}
+
+export default function Header({ initialData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const { setFilterOptions, filterOptions } = useEventStore();

@@ -1,5 +1,4 @@
-import { Event } from "../stores/useEventStore";
-
+import { Event } from "@/types/store/event";
 
 export const filterByTitle = (title: string) => (event: Event) => !title || event.title.toLowerCase().includes(title.toLowerCase());
 

@@ -3,15 +3,13 @@
 import { FaBars, FaTimes, FaCity } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
-import { Event } from "@/stores/useEventStore";
+
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
-interface Props {
-  initialData: { events: Event[]; categories: string[]; locations: string[] };
-}
+import { Props } from "@/types/ui/home";
 
-export default function NavBar({ initialData }: Props) {
+export function NavBar({ initialData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

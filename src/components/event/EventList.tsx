@@ -1,9 +1,10 @@
 "use client";
 
-import { Event } from "@/stores/useEventStore";
+import { Event } from "@/types/store/event";
+
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import EventCard from "./EventCard";
 import { EventCardSkeleton } from "./EventListSkeleton";
-import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
 export default function EventList({
   filteredEvents,

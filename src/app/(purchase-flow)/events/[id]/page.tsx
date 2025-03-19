@@ -1,6 +1,6 @@
 import { Badge } from "@/components/common/Badge";
-import { getEventById } from "@/services/getEvents";
-import { formatDate } from "@/utils/dates.helpers";
+import { getEventById } from "@/libs/services/getEvents";
+import { formatDate } from "@/libs/utils/dates.helpers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

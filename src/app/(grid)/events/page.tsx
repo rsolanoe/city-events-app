@@ -1,8 +1,8 @@
 import React from "react";
 
-import { getEvents } from "@/services/getEvents";
+import { getEvents } from "@/libs/services/getEvents";
 import HomePageWrapper from "@/components/Wrappers/HomePageWrapper";
-import NavBar from "@/components/Navbar/NavBar";
+import { NavBar } from "@/components/Navbar";
 
 export default async function HomePage() {
   const initialData = await getEvents();

@@ -1,7 +1,7 @@
 "use client";
 
 import { FaSearch, FaList, FaMapMarkerAlt } from "react-icons/fa";
-import { useEventStore } from "@/stores/useEventStore";
+import { useEventStore } from "@/stores/event/useEventStore";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

@@ -2,12 +2,9 @@
 
 import React, { useEffect } from "react";
 import { ActiveFilters } from "../ActionFilters";
-import EventList from "../EventList";
-import { Event, useEventStore } from "@/stores/useEventStore";
-
-interface Props {
-  initialData: { events: Event[]; categories: string[]; locations: string[] };
-}
+import EventList from "../event/EventList";
+import { useEventStore } from "@/stores/event/useEventStore";
+import { Props } from "@/types/ui/home";
 
 /**
  * HomePageWrapper component initializes the event data and displays a list of filtered events.

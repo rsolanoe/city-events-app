@@ -1,7 +1,7 @@
 "use client";
 
-import { useEventStore } from "@/stores/useEventStore";
-import { formatDate } from "@/utils/dates.helpers";
+import { useEventStore } from "@/stores/event/useEventStore";
+import { formatDate } from "@/libs/utils/dates.helpers";
 import { Pill } from "./common/Pill";
 
 export function ActiveFilters() {

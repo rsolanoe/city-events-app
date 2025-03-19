@@ -17,7 +17,7 @@ export function useInfiniteScroll<T>(items: T[], batchSize = 12) {
       (entries) => {
         if (entries[0].isIntersecting) loadMore();
       },
-      { rootMargin: "100px" }
+      { rootMargin: "20px" }
     );
 
     if (sentinelRef.current) observer.observe(sentinelRef.current);

@@ -5,43 +5,9 @@ import {
   filterByCategory,
   filterByLocation,
   filterByDateRange,
-} from "../utils/filter.helpers";
+} from "../../libs/utils/filter.helpers";
+import { EventStore } from "@/types/store/event";
 
-export interface Event {
-  id: string;
-  title: string;
-  date: string;
-  location: string;
-  category: string;
-  description: string;
-  image: string;
-}
-
-interface FilterOptions {
-  categories: string[];
-  locations: string[];
-  dates: { from?: string; to?: string };
-  title: string;
-}
-
-interface EventStore {
-  events: Event[];
-  filteredEvents: Event[];
-  categories: string[];
-  locations: string[];
-  filterOptions: FilterOptions;
-  setEvents: (data: {
-    events: Event[];
-    categories: string[];
-    locations: string[];
-  }) => void;
-  setFilterOptions: (filters: Partial<FilterOptions>) => void;
-  removeFilterOption: (
-    type: "category" | "location" | "date",
-    value?: string
-  ) => void;
-  applyFilters: () => void;
-}
 
 export const useEventStore = create<EventStore>()(
   devtools(

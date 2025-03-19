@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { formatDate } from "@/utils/dates.helpers";
-import { Badge } from "./common/Badge";
+import { formatDate } from "@/libs/utils/dates.helpers";
+import { Badge } from "../common/Badge";
 
 interface Event {
   id: string;

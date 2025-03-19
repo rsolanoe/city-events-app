@@ -1,7 +1,6 @@
 import React from "react";
 
 import { getEvents } from "@/services/getEvents";
-import EventList from "@/components/EventList";
 import Header from "@/components/Header";
 import HomePageWrapper from "@/components/Wrappers/HomePageWrapper";
 

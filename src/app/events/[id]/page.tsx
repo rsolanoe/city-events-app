@@ -1,4 +1,4 @@
-import { Badge } from "@/components/Badge";
+import { Badge } from "@/components/common/Badge";
 import { getEventById } from "@/services/getEvents";
 import { formatDate } from "@/utils/dates.helpers";
 import Image from "next/image";

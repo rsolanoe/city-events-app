@@ -5,7 +5,7 @@ import { mockEvents } from "@/mocks/events.mock";
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
-  await delay(600);
+  await delay(150);
 
   const { id } = await params;
   

@@ -10,9 +10,9 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
-import CustomSelect from "./CustomSelect";
+import CustomSelect from "./common/CustomSelect";
 import { useEventStore } from "@/stores/useEventStore";
-import CustomInput from "./CustomInput";
+import CustomInput from "./common/CustomInput";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

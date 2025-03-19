@@ -2,7 +2,7 @@
 
 import { useEventStore } from "@/stores/useEventStore";
 import { formatDate } from "@/utils/dates.helpers";
-import { Pill } from "./Pill";
+import { Pill } from "./common/Pill";
 
 export function ActiveFilters() {
   const { filterOptions, removeFilterOption } = useEventStore();

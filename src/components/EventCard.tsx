@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { formatDate } from "@/utils/dates.helpers";
-import { Badge } from "./Badge";
+import { Badge } from "./common/Badge";
 
 interface Event {
   id: string;
@@ -14,6 +14,7 @@ interface Event {
 }
 
 const EventCard = React.memo(({ event }: { event: Event }) => {
+  console.log("Rendering EventCard:", event.id);
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm">
       <div className="relative h-48 w-full">

@@ -1,6 +1,7 @@
 import { Badge } from "@/components/common/Badge";
-import { getEventById } from "@/libs/services/getEvents";
+import { getEventById } from "@/libs/services/events";
 import { formatDate } from "@/libs/utils/dates.helpers";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,6 +13,20 @@ import {
   FaClock,
   FaArrowLeft,
 } from "react-icons/fa";
+
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const { event } = await getEventById(id);
+
+  return {
+    title: event.title,
+    description: event.description,
+  };
+}
 
 export default async function EventPage({
   params,

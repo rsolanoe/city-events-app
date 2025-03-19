@@ -128,6 +128,16 @@ export const useEventStore = create<EventStore>()(
 
         get().applyFilters();
       },
+      
+      /**
+       * Aplica los filtros configurados en el estado del store.
+       *
+       * Combina los filtros por título, categoría, ubicación y rango de fechas en un
+       * solo array de funciones de filtrado. Luego, utiliza el método `every` para
+       * asegurarse que cada evento cumpla con todos los filtros configurados.
+       *
+       * Finalmente, actualiza el estado del store con el array de eventos filtrados.
+       */
       applyFilters: () => {
         const { events, filterOptions } = get();
 

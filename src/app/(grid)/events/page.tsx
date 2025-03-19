@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getEvents } from "@/libs/services/getEvents";
+import { getEvents } from "@/libs/services/events";
 import HomePageWrapper from "@/components/Wrappers/HomePageWrapper";
 import { NavBar } from "@/components/Navbar";
 

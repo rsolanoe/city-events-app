@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { formatDate } from "@/utils/dates.helpers";
+import { Badge } from "./Badge";
 
 interface Event {
   id: string;
@@ -11,32 +13,31 @@ interface Event {
   image: string;
 }
 
-export default function EventCard({ event }: { event: Event }) {
+const EventCard = React.memo(({ event }: { event: Event }) => {
   return (
     <div className="border rounded-lg overflow-hidden shadow-sm">
       <div className="relative h-48 w-full">
         <Image
-          src="/images/coming-soon.jpg"
+          src={event.image || "/images/coming-soon.jpg"}
           alt={event.title || "Event Image"}
           layout="fill"
-          objectFit="fit"
+          objectFit="cover"
         />
       </div>
       <div className="p-4">
-        <span className="text-xs font-medium text-primary">
-          {event.category}
-        </span>
+        <Badge text={event.category} />
         <h3 className="text-lg font-semibold mt-1">{event.title}</h3>
         <div className="flex items-center text-sm text-muted-foreground mt-2">
-          <span>{event.date}</span>
+          <span>{formatDate(event.date, "dd MMMM")}</span>
           <span className="mx-2">•</span>
           <span>{event.location}</span>
         </div>
-        <p className="text-sm mt-2 line-clamp-2">
-          Disfruta de una noche mágica con los mejores artistas locales en el
-          corazón de la ciudad.
-        </p>
+        <p className="text-sm mt-2 line-clamp-2">{event.description}</p>
       </div>
     </div>
   );
-}
+});
+
+EventCard.displayName = "EventCard";
+
+export default EventCard;

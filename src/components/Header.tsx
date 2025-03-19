@@ -6,12 +6,16 @@ import {
   FaTimes,
   FaList,
   FaMapMarkerAlt,
+  FaCity,
 } from "react-icons/fa";
 import Link from "next/link";
 import { useState } from "react";
 import CustomSelect from "./CustomSelect";
 import { useEventStore } from "@/stores/useEventStore";
 import CustomInput from "./CustomInput";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 interface Event {
   id: string;
@@ -43,22 +47,7 @@ export default function Header({ initialData }: Props) {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2">
             <div className="rounded-full bg-primary p-1 text-primary-foreground">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6"
-              >
-                <path d="M12 2 L22 8.5 L22 15.5 L12 22 L2 15.5 L2 8.5 L12 2" />
-                <path d="M12 22 L12 15" />
-                <path d="M22 8.5 L12 15 L2 8.5" />
-                <path d="M2 15.5 L12 8.5 L22 15.5" />
-                <path d="M12 2 L12 8.5" />
-              </svg>
+              <FaCity className="text-gray-900 text-4xl font-bold" />
             </div>
             <span className="text-xl font-bold">CityEvents</span>
           </Link>
@@ -85,26 +74,39 @@ export default function Header({ initialData }: Props) {
             }
             icon={<FaMapMarkerAlt className="text-gray-500" />}
           />
-          <div>
-            <input
-              type="date"
-              value={filterOptions.dates.from || ""}
-              onChange={(e) =>
-                setFilterOptions({
-                  dates: { ...filterOptions.dates, from: e.target.value },
-                })
-              }
-            />
-            <input
-              type="date"
-              value={filterOptions.dates.to || ""}
-              onChange={(e) =>
-                setFilterOptions({
-                  dates: { ...filterOptions.dates, to: e.target.value },
-                })
-              }
-            />
-          </div>
+
+          {/* Selector de rango de fechas conectado al store */}
+          <DatePicker
+            selected={
+              filterOptions.dates.from
+                ? new Date(filterOptions.dates.from)
+                : null
+            }
+            onChange={(dates) => {
+              const [start, end] = dates as [Date | null, Date | null];
+
+              if (!start && !end) return;
+
+              setFilterOptions({
+                dates: {
+                  from: start ? start.toISOString() : undefined,
+                  to: end ? end.toISOString() : undefined,
+                },
+              });
+            }}
+            startDate={
+              filterOptions.dates.from
+                ? new Date(filterOptions.dates.from)
+                : null
+            }
+            endDate={
+              filterOptions.dates.to ? new Date(filterOptions.dates.to) : null
+            }
+            selectsRange
+            placeholderText="Selecciona un rango de fechas"
+            className="w-full"
+          />
+
           <div className="relative">
             <CustomInput
               type="search"
@@ -148,6 +150,37 @@ export default function Header({ initialData }: Props) {
                 setFilterOptions({ locations: value ? [value] : [] })
               }
               icon={<FaMapMarkerAlt className="text-gray-500" />}
+            />
+
+            <DatePicker
+              selected={
+                filterOptions.dates.from
+                  ? new Date(filterOptions.dates.from)
+                  : null
+              }
+              onChange={(dates) => {
+                const [start, end] = dates as [Date | null, Date | null];
+
+                if (!start && !end) return;
+
+                setFilterOptions({
+                  dates: {
+                    from: start ? start.toISOString() : undefined,
+                    to: end ? end.toISOString() : undefined,
+                  },
+                });
+              }}
+              startDate={
+                filterOptions.dates.from
+                  ? new Date(filterOptions.dates.from)
+                  : null
+              }
+              endDate={
+                filterOptions.dates.to ? new Date(filterOptions.dates.to) : null
+              }
+              selectsRange
+              placeholderText="Selecciona un rango de fechas"
+              className="w-full"
             />
 
             <div className="relative mt-2">

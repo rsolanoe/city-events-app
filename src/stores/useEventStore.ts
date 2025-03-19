@@ -99,7 +99,10 @@ export const useEventStore = create<EventStore>()(
       setFilterOptions: (filters) => {
         set(
           (state) => ({
-            filterOptions: { ...state.filterOptions, ...filters },
+            filterOptions: {
+              ...state.filterOptions,
+              ...filters,
+            },
           }),
           false,
           "setFilterOptions"

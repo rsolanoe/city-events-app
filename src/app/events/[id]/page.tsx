@@ -1,3 +1,4 @@
+import { Badge } from "@/components/Badge";
 import { getEventById } from "@/services/getEvents";
 import { formatDate } from "@/utils/dates.helpers";
 import Image from "next/image";
@@ -51,7 +52,7 @@ export default async function EventPage({
             {/* Información a la derecha */}
             <div className="p-6 md:p-8 lg:p-10 flex flex-col">
               <div className="flex items-center gap-2 mb-3">
-                <div className="bg-muted text-foreground">{event.category}</div>
+                <Badge text={event.category} />
                 <div className="flex items-center gap-1 text-muted-foreground">
                   <FaHeart className="h-4 w-4" />
                   <span className="text-sm">128 interesados</span>

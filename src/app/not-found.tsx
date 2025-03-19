@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
@@ -12,12 +10,12 @@ export default function NotFound() {
           The page you are looking for might have been removed, had its name
           changed, or is temporarily unavailable.
         </p>
-        <Link
-          href="/"
-          className="px-6 py-3 bg-[red] text-primary-foreground rounded-md font-medium hover:bg-[blue]/90 transition-colors"
+        <a
+          href="/events"
+          className="px-6 py-3 bg-[#181717] bg-primary-foreground text-white rounded-md font-medium hover:bg-[#181717]/70 transition-colors"
         >
           Return Home
-        </Link>
+        </a>
       </div>
     </div>
   );

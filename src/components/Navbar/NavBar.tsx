@@ -13,7 +13,7 @@ export function NavBar({ initialData }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 shadow-md">
       <div className="container flex h-16 items-center justify-between py-4 max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2">
           <div className="rounded-full bg-primary p-1 text-primary-foreground">

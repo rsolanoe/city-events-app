@@ -37,7 +37,7 @@ export default async function EventPage({
   const { event } = await getEventById(id);
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center flex-col">
+    <div className="min-h-screen bg-background flex items-center justify-center flex-col px-4">
       {/* Botón de regreso */}
       <div className="container pt-6 pb-4">
         <Link
@@ -49,12 +49,12 @@ export default async function EventPage({
         </Link>
       </div>
 
-      {/* Contenido principal */}
+      {/* Contenido principal con sombra mejorada */}
       <div className="container pb-16">
-        <div className="bg-background rounded-xl overflow-hidden border shadow-sm">
+        <div className="bg-background rounded-xl overflow-hidden border border-gray-300/50 shadow-2xl transition-all hover:shadow-[0px_10px_30px_rgba(0,0,0,0.15)]">
           <div className="grid md:grid-cols-2">
             {/* Imagen a la izquierda */}
-            <div className="relative aspect-square md:aspect-auto md:h-full">
+            <div className="relative h-64 md:h-full">
               <Image
                 src={event.image || "/images/pdp-placeholder.svg"}
                 alt={event.title}
@@ -74,7 +74,7 @@ export default async function EventPage({
                 </div>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
                 {event.title}
               </h1>
 
@@ -96,12 +96,14 @@ export default async function EventPage({
 
               <p className="text-base mb-8">{event.description}</p>
 
-              {/* Tarjeta de precio */}
-              <div className="mt-auto bg-muted/30 rounded-xl p-6 border">
-                <h3 className="text-xl font-semibold mb-2">
+              {/* Tarjeta de precio con tamaño ajustado en mobile */}
+              <div className="mt-auto bg-muted/30 rounded-xl p-4 md:p-6 border">
+                <h3 className="text-lg md:text-xl font-semibold mb-2">
                   Precio de entrada
                 </h3>
-                <p className="text-3xl font-bold mb-6">{event.price}</p>
+                <p className="text-2xl md:text-3xl font-bold mb-6">
+                  {event.price}
+                </p>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-2">

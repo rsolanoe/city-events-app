@@ -22,10 +22,8 @@ export function NavBar({ initialData }: Props) {
           <span className="text-xl font-bold">CityEvents</span>
         </Link>
 
-        {/* Navegación en escritorio */}
         <DesktopNav initialData={initialData} />
 
-        {/* Botón del menú móvil */}
         <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -38,7 +36,6 @@ export function NavBar({ initialData }: Props) {
         </button>
       </div>
 
-      {/* Menú móvil */}
       {isMenuOpen && <MobileNav initialData={initialData} />}
     </header>
   );

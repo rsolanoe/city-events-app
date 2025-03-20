@@ -18,7 +18,7 @@ export default function CustomSelect({
   icon,
 }: CustomSelectProps) {
   return (
-    <div className="relative w-full md:w-fit">
+    <div className="relative w-full shadow-sm md:w-fit">
       {/* Icono a la izquierda */}
       {icon && (
         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">

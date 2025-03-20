@@ -13,6 +13,7 @@ import {
   FaClock,
   FaArrowLeft,
 } from "react-icons/fa";
+import ConfettiButton from "@/components/common/ConfettiButton";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -41,11 +42,11 @@ export default async function EventPage({
       {/* Botón de regreso */}
       <div className="container pt-6 pb-4">
         <Link
-          href="/"
-          className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          href="/events"
+          className="inline-flex items-center cursor-pointer text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
         >
           <FaArrowLeft className="mr-2 h-4 w-4" />
-          Volver a eventos
+          Go back to event list
         </Link>
       </div>
 
@@ -70,7 +71,7 @@ export default async function EventPage({
                 <Badge text={event.category} />
                 <div className="flex items-center gap-1 text-muted-foreground">
                   <FaHeart className="h-4 w-4" />
-                  <span className="text-sm">128 interesados</span>
+                  <span className="text-sm">128 people interested</span>
                 </div>
               </div>
 
@@ -97,22 +98,28 @@ export default async function EventPage({
               <p className="text-base mb-8">{event.description}</p>
 
               {/* Tarjeta de precio con tamaño ajustado en mobile */}
-              <div className="mt-auto bg-muted/30 rounded-xl p-4 md:p-6 border">
-                <h3 className="text-lg md:text-xl font-semibold mb-2">
-                  Precio de entrada
+              <div className="mt-auto bg-muted/30 rounded-xl p-3 md:p-6 border border-gray-300">
+                <h3 className="text-sm md:text-lg font-semibold mb-2 text-gray-800">
+                  Ticket price
                 </h3>
-                <p className="text-2xl md:text-3xl font-bold mb-6">
+                <p className="text-xl md:text-3xl font-bold mb-4 text-black">
                   {event.price}
                 </p>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 mb-4">
                   <div className="flex items-center gap-2">
                     <FaClock className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Quedan 45 entradas</span>
+                    <span className="text-xs md:text-sm text-gray-600">
+                      45 tickets left
+                    </span>
                   </div>
                 </div>
 
-                <button className="w-full">Comprar ahora</button>
+                <ConfettiButton
+                  buttonText="Buy now"
+                  modalTitle="🎉 Thank you for your purchase!"
+                  modalMessage="Enjoy your event!"
+                />
               </div>
             </div>
           </div>

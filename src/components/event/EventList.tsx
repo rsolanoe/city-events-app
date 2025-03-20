@@ -5,6 +5,7 @@ import { Event } from "@/types/store/event";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import EventCard from "./EventCard";
 import { EventCardSkeleton } from "./EventListSkeleton";
+import ScrollToTopButton from "../common/ScrollToTopButton";
 
 export default function EventList({
   filteredEvents,
@@ -29,6 +30,8 @@ export default function EventList({
 
       {/* Sentinel para cargar más eventos */}
       <div ref={sentinelRef} className="h-10 w-full bg-transparent"></div>
+
+      <ScrollToTopButton />
     </div>
   );
 }

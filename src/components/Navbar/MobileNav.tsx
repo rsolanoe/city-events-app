@@ -1,6 +1,11 @@
 "use client";
 
-import { FaSearch, FaList, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaSearch,
+  FaList,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+} from "react-icons/fa";
 import { useEventStore } from "@/stores/event/useEventStore";
 import CustomSelect from "../common/CustomSelect";
 import CustomInput from "../common/CustomInput";
@@ -38,29 +43,36 @@ export default function MobileNav({ initialData }: Props) {
           icon={<FaMapMarkerAlt className="text-gray-500" />}
         />
 
-        <DatePicker
-          selected={
-            filterOptions.dates.from ? new Date(filterOptions.dates.from) : null
-          }
-          onChange={(dates) => {
-            const [start, end] = dates as [Date | null, Date | null];
-            setFilterOptions({
-              dates: {
-                from: start ? start.toISOString() : undefined,
-                to: end ? end.toISOString() : undefined,
-              },
-            });
-          }}
-          startDate={
-            filterOptions.dates.from ? new Date(filterOptions.dates.from) : null
-          }
-          endDate={
-            filterOptions.dates.to ? new Date(filterOptions.dates.to) : null
-          }
-          selectsRange
-          placeholderText="Selecciona un rango de fechas"
-          className="w-full"
-        />
+        <div className="relative flex items-center">
+          <FaCalendarAlt className="absolute left-3 text-gray-500" />
+          <DatePicker
+            selected={
+              filterOptions.dates.from
+                ? new Date(filterOptions.dates.from)
+                : null
+            }
+            onChange={(dates) => {
+              const [start, end] = dates as [Date | null, Date | null];
+              setFilterOptions({
+                dates: {
+                  from: start ? start.toISOString() : undefined,
+                  to: end ? end.toISOString() : undefined,
+                },
+              });
+            }}
+            startDate={
+              filterOptions.dates.from
+                ? new Date(filterOptions.dates.from)
+                : null
+            }
+            endDate={
+              filterOptions.dates.to ? new Date(filterOptions.dates.to) : null
+            }
+            selectsRange
+            placeholderText="Select a date range"
+            className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+          />
+        </div>
 
         <CustomInput
           type="search"

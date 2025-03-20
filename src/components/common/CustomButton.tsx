@@ -1,5 +1,3 @@
-"use client";
-
 interface CustomButtonProps {
   text: string;
   onClick?: () => void;

@@ -12,10 +12,7 @@ import CustomInput from "../common/CustomInput";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
-
-interface Props {
-  initialData: { categories: string[]; locations: string[] };
-}
+import { Props } from "@/types/ui/home";
 
 export default function MobileNav({ initialData }: Props) {
   const { setFilterOptions, filterOptions } = useEventStore();

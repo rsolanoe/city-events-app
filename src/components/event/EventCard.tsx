@@ -14,7 +14,6 @@ interface Event {
 }
 
 const EventCard = React.memo(({ event }: { event: Event }) => {
-  console.log("Rendering EventCard:", event.id);
   return (
     <div className="rounded-lg overflow-hidden shadow-xl border border-gray-200/50 bg-background transition-all hover:shadow-2xl hover:-translate-y-1">
       <div className="relative h-48 w-full">

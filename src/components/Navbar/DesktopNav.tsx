@@ -11,10 +11,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CustomSelect from "../common/CustomSelect";
 import CustomInput from "../common/CustomInput";
-
-interface Props {
-  initialData: { categories: string[]; locations: string[] };
-}
+import { Props } from "@/types/ui/home";
 
 export default function DesktopNav({ initialData }: Props) {
   const { setFilterOptions, filterOptions } = useEventStore();

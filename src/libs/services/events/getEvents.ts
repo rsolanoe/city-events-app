@@ -1,15 +1,5 @@
+import { Event } from "@/types/store/event";
 import { notFound } from "next/navigation";
-
-interface Event {
-  id: string;
-  title: string;
-  date: string;
-  location: string;
-  category: string;
-  description: string;
-  image: string;
-  price: string;
-}
 
 /**
  * Fetches events data from the API and returns a structured object.

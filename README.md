@@ -105,7 +105,7 @@ This makes the app scalable and easy to maintain.
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features (Updated)
 
 - **Event Filtering** – Users can filter events by category, location, date range, or title.
 - **Infinite Scroll** – Events load dynamically as the user scrolls down.
@@ -113,6 +113,7 @@ This makes the app scalable and easy to maintain.
 - **Skeleton Loaders** – Placeholder UI for better UX while fetching data.
 - **Dynamic Routing** – Clicking on an event opens a dedicated event detail page (PDP).
 - **Mock API** – Uses Next.js API routes to simulate real API requests.
+- **Optimized Image Handling** – Uses Next.js `next/image`, which automatically applies **lazy loading, responsive sizes, and image compression** to optimize performance and reduce bandwidth usage, ensuring faster load times and better user experience.
 
 ---
 
@@ -135,6 +136,32 @@ If I had more time, I would:
 
 ---
 
+## 🏆 Challenges Faced
+
+Developing **City Events App** presented several technical and architectural challenges:
+
+- **Optimizing Server-Side Rendering (SSR)**: Ensuring that event data was always fresh while balancing performance trade-offs. Implementing SSR helped reduce client-side workload but required careful handling of API calls.
+- **Managing Global State Efficiently**: Choosing **Zustand** over heavier state management solutions like Redux helped keep the store lightweight, but structuring it to handle filters dynamically was a challenge.
+- **Implementing Infinite Scroll**: Handling dynamic pagination while maintaining smooth user experience and performance required debouncing logic and conditional fetching strategies.
+- **Mocking API Calls in Next.js**: Since no real API was available, simulating backend behavior through API routes while keeping the mock data scalable and modular was an important challenge.
+- **Ensuring a Modular Project Structure**: Defining a clear separation of concerns in folders (`services`, `store`, `hooks`, etc.) to keep the codebase maintainable as features scaled.
+
+---
+
+## 📚 Learnings & Takeaways
+
+Building this app reinforced key frontend principles:
+
+- **SSR vs. CSR Trade-offs**: Understanding when to use Server-Side Rendering vs. Client-Side Rendering, especially in a data-driven app like this.
+- **State Management Best Practices**: Zustand provided a simple yet effective way to handle global state without unnecessary complexity.
+- **Performance Optimization**: Implementing **lazy loading, skeleton loaders, and infinite scrolling** helped improve the UX while optimizing resource usage.
+- **Next.js API Routes for Mock Data**: This approach allowed the app to function like a real-world production application even without an external API.
+- **Scalable Folder Structure**: A well-organized architecture made development more efficient and maintainable, reducing code duplication.
+
+These insights will be valuable in future projects, especially when working with dynamic, data-heavy applications.
+
+---
+
 ## 🚀 Deployment
 
 This project is deployed on **Vercel** and can be accessed at:  
@@ -144,7 +171,7 @@ This project is deployed on **Vercel** and can be accessed at:
 
 ## 👤 Author
 
-**Rodo**  
+**Rodolfo Solano**  
 📧 rjse31@gmail.com  
 💼 [LinkedIn](https://www.linkedin.com/in/rjsolanoe/)
 
